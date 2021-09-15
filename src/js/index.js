@@ -35,18 +35,16 @@ function changeTask(task) {
 function draw(whereDraw) {
     let todosContainer = ''
     todos.forEach(todo => {
-        todosContainer += this.templateTodo(todo)
+        todosContainer += templateTodo(todo)
     })
     whereDraw.innerHTML = todosContainer
 }
 function templateTodo(data) {
     return `<li class="todo-list" data-id="${data.id}" data-completed="${+data.completed}" data-title="${data.title}">
                 <div class="list-item-view">
-                    <div class="item">                        
-                        <label ${data.completed && 'class="completed"'}>
+                    <label ${data.completed && 'class="completed"'}>
                             <input type="checkbox" class="checkbox-completed-task" ${data.completed && 'checked'}>${data.title}
-                        </label>
-                    </div>
+                    </label>
                     <button class="btn btn-danger delete-task">Delete</button>
                 </div>
             </li>`

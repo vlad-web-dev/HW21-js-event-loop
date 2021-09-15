@@ -112,13 +112,13 @@ input[type="checkbox"] {
     display: none;
 }
 
-.item label:hover {
+.list-item-view label:hover {
     cursor: pointer;
 }
-.item label {
+.list-item-view label {
     color: #e6ff01;
 }
-.item label.completed {
+.list-item-view label.completed {
     color: #00f204;
 }
 
