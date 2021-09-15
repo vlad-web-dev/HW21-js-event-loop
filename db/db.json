@@ -1,0 +1,14 @@
+{
+  "todos": [
+    {
+      "title": "buy milk",
+      "completed": false,
+      "id": 1
+    },
+    {
+      "title": "buy sugar",
+      "completed": false,
+      "id": 2
+    }
+  ]
+}
