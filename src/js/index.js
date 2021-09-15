@@ -57,24 +57,7 @@ fetch(`${resource}/todos`)
     .then((res) => {
         todos = res
         draw(todosSection)
-        eventDeleteTask()
-        eventMarkedTask()
     })
-
-
-function eventDeleteTask() {
-    const delBtns = document.querySelectorAll('button.delete-task')
-    delBtns.forEach(button => {
-        button.addEventListener('click',  (event) => handlerDeleteTask(event))
-    })
-}
-
-function eventMarkedTask() {
-    const markedCheckboxes = document.querySelectorAll('input.checkbox-completed-task')
-    markedCheckboxes.forEach(el => {
-        el.addEventListener('click',  (event) => handlerMarkedTask(event))
-    })
-}
 
 function handlerDeleteTask(event) {
     const parentEl = event.target.closest('.todo-list')
@@ -120,8 +103,17 @@ function handlerAddTask(event) {
             const el = templateTodo(res)
             todosSection.innerHTML += el
             event.target[0].value = ''
-            eventDeleteTask()
-            eventMarkedTask()
         })
 }
+
+todosSection.addEventListener('click', (event) => {
+    switch (event.target.tagName) {
+        case 'LABEL':
+            handlerMarkedTask(event)
+            break;
+        case 'BUTTON':
+            handlerDeleteTask(event)
+            break;
+    }
+})
 
